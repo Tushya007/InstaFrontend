@@ -1,0 +1,49 @@
+.home{
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+}
+.home__posts{
+    display: flex;
+    flex-direction:column;
+    padding-top:100px;
+    padding-bottom:100px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 30%;
+    border:2px solid magenta;
+    margin:auto;
+    margin-top:50px;
+    margin-bottom: 50px;
+}
+.posts__title{
+    margin-right:auto ;
+    margin-left:5%;
+    flex:0.2;
+}
+.posts__image{
+    flex:0.5;
+}
+.posts__description{
+    margin-right:auto ;
+    margin-left:5%;
+    flex:0.3
+}
+img{
+    width: 100%;
+}
+hr{
+    width:90%;
+}
+.posts__main__comments{
+    border:1px solid black;
+    margin-left: 20px;
+}
+.posts__sub__comment{
+    border:2px dotted magenta;
+    margin-left: 40px;
+}
+.comments{
+    display: none;
+    flex-direction: column;
+}
