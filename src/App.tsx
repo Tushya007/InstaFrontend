@@ -10,6 +10,25 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import axios from './axios';
 
 function App() {
+    var token = localStorage.getItem('token');
+    const mainComment = (comment:string,main_post:Int16Array) =>{
+        var data = {
+            comment,
+            main_post
+        }
+        axios
+            .post('/post/create/maincomment/', data, {
+                headers: {
+                    Authorization: `Token ${token}`,
+                },
+            })
+            .then((res) => {
+                console.log(res);
+            })
+            .catch((err) => {
+                console.log(err.response);
+            });
+    }
     const userLogin = (username: string, password: string) => {
         var data = {
             username,
@@ -48,7 +67,6 @@ function App() {
             title,
             description,
         };
-        var token = localStorage.getItem('token');
         axios
             .post('/post/create/', data, {
                 headers: {
@@ -80,7 +98,7 @@ function App() {
                         <Login userLogin={userLogin} />
                     </Route>
                     <Route path='/'>
-                        <Home />
+                        <Home commentFunc={mainComment} />
                     </Route>
                 </Switch>
             </Router>

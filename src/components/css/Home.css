@@ -6,44 +6,125 @@
 .home__posts{
     display: flex;
     flex-direction:column;
-    padding-top:100px;
-    padding-bottom:100px;
+    padding-top:50px;
+    padding-bottom:50px;
     padding-left: 10px;
     padding-right: 10px;
     width: 30%;
-    border:2px solid magenta;
+    border:1px solid black;
+    border-radius: 10px;
     margin:auto;
     margin-top:50px;
     margin-bottom: 50px;
+    min-width: 450px;
 }
 .posts__title{
     margin-right:auto ;
     margin-left:5%;
     flex:0.2;
 }
-.posts__image{
-    flex:0.5;
+.posts__images{
+    display: flex;
+    justify-content: center;
+    
+}
+.posts__images > img{
+    width: 90%;
 }
 .posts__description{
     margin-right:auto ;
     margin-left:5%;
     flex:0.3
 }
-img{
-    width: 100%;
-}
 hr{
     width:90%;
 }
 .posts__main__comments{
-    border:1px solid black;
+    border:3px solid black;
     margin-left: 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
 }
 .posts__sub__comment{
-    border:2px dotted magenta;
+    border:1px solid black;
     margin-left: 40px;
+    margin-bottom: 10px;
+    border-radius: 10px;
 }
 .comments{
     display: none;
     flex-direction: column;
+}
+.posts__likes{
+    display: flex;   
+}
+.posts__likes>h5{
+    margin-left:10px
+}
+.posts__showComments{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border:1px solid black;
+    padding:5px;
+    border-radius: 10px;
+    outline: none !important;
+    width: 90%;
+    margin-left:5%
+}
+.fav__icon{
+    font-size: 16px;
+}
+.commentForm > form{
+    display: flex;
+    flex-direction: column;
+    width:90%;
+    margin-right:auto;
+    margin-left:25px;
+    max-width: 500px;
+}
+/* .commentForm__form > label {
+    font-weight: 500;
+    margin-right:auto;
+    margin-top:15px;
+} */
+.together{
+    margin-top: 20px;
+}
+.together > input {
+    outline:none;
+    border-radius: 5px;
+    border : 2px solid black;
+    padding: 5px;
+    margin-right: 8px;
+    width: 78%;
+}
+.commentForm__button{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border:1px solid black;
+    padding:5px;
+    border-radius: 10px;
+    outline: none !important;
+}
+.posts__main__comments{
+    display: flex;
+    flex-direction: column;
+}
+.comment__author{
+    font-weight: 700;
+}
+.comment__content{
+    margin-left:30px;
+    margin-bottom: 10px;
+}
+.posts__sub__comment{
+    display: flex;
+    flex-direction: column;
+}
+.subComment__author{
+    font-weight: 700;
+}
+.subComment__content{
+    margin-left:30px;
+    margin-bottom: 10px;
 }
