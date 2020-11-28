@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instence = axios.create({
-    baseURL: 'http://localhost:8000',
+    baseURL: 'https://hepoku.herokuapp.com/',
 });
 
 export default instence;

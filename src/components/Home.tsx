@@ -67,57 +67,22 @@ const Home = ({commentFunc}:any) => {
     const likePost = (e:any) => {
         e.preventDefault();
         var post_id = parseInt(e.nativeEvent.path[0].id, 10);
-        // eslint-disable-next-line
-        data.map((_post:any, id) => {
-            if (_post.id === post_id) {
-                if (_post.likes.length > 0) {
-                    var canLike = []
-                    // eslint-disable-next-line
-                    _post.likes.map((like:any,id:any)=>{
-                        if (like.author === user) {
-                            console.log("unlike");
-                        } else if(like.author !== user) {
-                            canLike.push("yep")
-                            if (canLike.length===_post.likes.length){
-                                var send_data = {
-                                    "post": post_id,
-                                };
-                                axios
-                                    .post('post/like/', send_data, {
-                                        headers: {
-                                            Authorization: `Token ${token}`,
-                                        },
-                                    })
-                                    .then((res) => {
-                                        getAllPosts();
-                                        console.log(res);
-                                    })
-                                    .catch((err) => {
-                                        console.log(err.response);
-                                    });
-                            }
-                        }
-                    })
-                } else {
-                    var send_data = {
-                        "post": post_id,
-                    };
-                    axios
-                        .post('post/like/', send_data, {
-                            headers: {
-                                Authorization: `Token ${token}`,
-                            },
-                        })
-                        .then((res) => {
-                            getAllPosts();
-                            console.log(res);
-                        })
-                        .catch((err) => {
-                            console.log(err.response);
-                        });
-                }
-            }
-        });
+        var send_data = {
+            "post": post_id,
+        };
+        axios
+            .post('post/like/', send_data, {
+                headers: {
+                    Authorization: `Token ${token}`,
+                },
+            })
+            .then((res) => {
+                getAllPosts();
+                console.log(res);
+            })
+            .catch((err) => {
+                console.log(err.response);
+            });
     };
     useEffect(() => {
         getAllPosts();

@@ -38,7 +38,7 @@ function App() {
             .post('user/login/', data)
             .then((res) => {
                 localStorage.setItem('token', res.data.details.token);
-                window.location.href = 'http://localhost:3000';
+                window.location.href = 'https://hepoku-86f8f.web.app';
             })
             .catch((err) => {
                 alert(err.response.data.message);
@@ -55,7 +55,7 @@ function App() {
             .post('/user/signup/', data)
             .then((res) => {
                 localStorage.setItem('token', res.data.details.token);
-                window.location.href = 'http://localhost:3000';
+                window.location.href = 'https://hepoku-86f8f.web.app';
             })
             .catch((err) => {
                 alert(err.response.data.message);
