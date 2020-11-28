@@ -8,7 +8,7 @@ const Navbar = () => {
     }
     var token = localStorage.getItem('token')
     return (
-        <div class='navbar__group'>
+        <div className='navbar__group'>
             <nav className="navbar__main">
                 <div className='navbar__left'>
                     <Link to='/' className="navbar__title">
@@ -19,6 +19,9 @@ const Navbar = () => {
                     <div className='navbar__right' id="col_div">
                         <Link to="/user/profile" className="navabr__profile">
                             Profile
+                        </Link>
+                        <Link to="/post/create" className="navabr__profile">
+                            CreatePost
                         </Link>
                         <Link to="/login" onClick={logout} className="navabr__logout">
                             Logout

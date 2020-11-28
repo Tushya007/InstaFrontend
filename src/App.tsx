@@ -5,11 +5,12 @@ import Profile from './components/Profile';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Navbar from './components/Navbar';
+import PostCreate from './components/PostCreate';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import axios from './axios';
 
 function App() {
-    const userLogin = (username, password) => {
+    const userLogin = (username: string, password: string) => {
         var data = {
             username,
             password,
@@ -25,7 +26,7 @@ function App() {
                 console.log(err);
             });
     };
-    const userSignup = (username, email, password) => {
+    const userSignup = (username: string, email: string, password: string) => {
         var data = {
             username,
             email,
@@ -42,6 +43,25 @@ function App() {
                 console.log(err);
             });
     };
+    const postCreate = (title: string, description: string) => {
+        var data = {
+            title,
+            description,
+        };
+        var token = localStorage.getItem('token');
+        axios
+            .post('/post/create/', data, {
+                headers: {
+                    Authorization: `Token ${token}`,
+                },
+            })
+            .then((res) => {
+                console.log(res);
+            })
+            .catch((err) => {
+                console.log(err.response);
+            });
+    };
     return (
         <div className='App'>
             <Router>
@@ -52,6 +72,9 @@ function App() {
                     </Route>
                     <Route path='/user/profile'>
                         <Profile />
+                    </Route>
+                    <Route path='/post/create'>
+                        <PostCreate postFunc={postCreate} />
                     </Route>
                     <Route path='/login'>
                         <Login userLogin={userLogin} />

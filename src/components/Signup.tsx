@@ -1,11 +1,11 @@
 import React,{useState} from 'react';
 import './css/Signup.css';
 
-const Signup = ({userSignup}) => {
+const Signup = ({userSignup}:any) => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const onClickHandler = async (e) => {
+    const onClickHandler = async (e:any) => {
         e.preventDefault();
         await userSignup(username,email,password)
     };
@@ -18,7 +18,7 @@ const Signup = ({userSignup}) => {
                     type='text'
                     name='username'
                     placeholder='Username'
-                    onChange={(e) => setUsername(e.target.value)}
+                    onChange={(e:any) => setUsername(e.target.value)}
                 />
                 <label htmlFor='email'>Email</label>
                 <input
@@ -26,7 +26,7 @@ const Signup = ({userSignup}) => {
                     type='email'
                     name='email'
                     placeholder='Email'
-                    onClick={(e) => setEmail(e.target.value)}
+                    onChange={(e:any) => setEmail(e.target.value)}
                 />
                 <label htmlFor='password'>Password</label>
                 <input
@@ -34,7 +34,7 @@ const Signup = ({userSignup}) => {
                     type='password'
                     name='password'
                     placeholder='Password'
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e:any) => setPassword(e.target.value)}
                 />
                 <button className='signup__button' onClick={onClickHandler}>
                     Submit

@@ -1,0 +1,45 @@
+.postCreate{
+    margin-top:100px;
+}
+
+.postCreate > form{
+    display: flex;
+    flex-direction: column;
+    width:90vw;
+    margin-right:auto;
+    margin-left:auto;
+    max-width: 500px;
+}
+.postCreate__form > label {
+    font-weight: 500;
+    margin-right:auto;
+    margin-top:5px;
+    margin-bottom: 5px;
+}
+.postCreate__form > input {
+    outline:none;
+    border-radius: 5px;
+    border : 2px solid black;
+    padding: 5px;
+}
+.postCreate__form > textarea {
+    outline:none;
+    border-radius: 5px;
+    border : 2px solid black;
+    padding: 5px;
+}
+.postCreate__button{
+    margin-top:10px;
+    padding:5px;
+    color:black;
+    border-radius: 10px;
+    background-color: beige;
+    width:100px;
+    font-weight: 800;
+    font-size: 16px;
+    border:1px solid black;
+    outline: none !important;
+}
+.postCreate__button:hover{
+    color: rgb(79, 47, 197);
+}

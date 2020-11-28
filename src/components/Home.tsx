@@ -20,11 +20,11 @@ const Home = () => {
                 console.log(err.response);
             });
     }, []);
-    const commentHandler = (e) => {
+    const commentHandler = (e:any) => {
         e.preventDefault();
         var id = e.nativeEvent.path[0].id;
         var com_id = id.split('commentBlock')[1];
-        var commentEl = document.getElementById(`comments${com_id}`);
+        var commentEl:any = document.getElementById(`comments${com_id}`);
         if (commentEl.style.display === 'none') {
             commentEl.style.display = 'flex';
         } else {
@@ -45,21 +45,21 @@ const Home = () => {
                 console.log(err.response);
             });
     };
-    const likePost = (e) => {
+    const likePost = (e:any) => {
         e.preventDefault();
         var post_id = parseInt(e.nativeEvent.path[0].id, 10);
-        data.map((_post, id) => {
+        data.map((_post:any, id) => {
             if (_post.id === post_id) {
                 if (_post.likes.length > 0) {
                     var canLike = []
-                    _post.likes.map((like,id)=>{
+                    _post.likes.map((like:any,id:any)=>{
                         if (like.author === user) {
                             console.log("unlike");
                         } else if(like.author !== user) {
                             canLike.push("yep")
                             if (canLike.length===_post.likes.length){
                                 var send_data = {
-                                    post: post_id,
+                                    "post": post_id,
                                 };
                                 axios
                                     .post('post/like/', send_data, {
@@ -79,7 +79,7 @@ const Home = () => {
                     })
                 } else {
                     var send_data = {
-                        post: post_id,
+                        "post": post_id,
                     };
                     axios
                         .post('post/like/', send_data, {
@@ -103,7 +103,7 @@ const Home = () => {
     }, []);
     return (
         <div className='home'>
-            {data.map((post, id) => {
+            {data.map((post:any, id) => {
                 return (
                     <div className='home__posts'>
                         <div className='posts__title'>
@@ -122,7 +122,7 @@ const Home = () => {
                         <hr />
                         <div className='posts__description'>
                             <button id={post.id} onClick={likePost}>
-                                {post.likes.length}
+                                {post.likes.length} {post.likes.length > 1 ? "likes" : "like"}
                             </button>
                             <hr />
                             {post.description}
@@ -132,7 +132,7 @@ const Home = () => {
                             </button>
                         </div>
                         <div id={`comments${id}`} className='comments'>
-                            {post.comments.map((comment, id) => {
+                            {post.comments.map((comment:any, id:Int16Array) => {
                                 return (
                                     <div className='posts__comments'>
                                         <div className='posts__main__comments'>
@@ -140,7 +140,7 @@ const Home = () => {
                                             <hr />
                                             {comment.comment}
                                         </div>
-                                        {comment.sub_comments.map((sub_comment, id) => {
+                                        {comment.sub_comments.map((sub_comment:any, id:Int16Array) => {
                                             return (
                                                 <div className='posts__sub__comment'>
                                                     {sub_comment.author}

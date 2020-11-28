@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './css/Login.css';
 
-const Login = ({userLogin}) => {
+const Login = ({userLogin}:any) => {
     const [username,setUsername] = useState('')
     const [password,setPassword] = useState('')
-    const onClickHandler = async (e) => {
+    const onClickHandler = async (e:any) => {
         e.preventDefault();
         await userLogin(username,password)
     };
@@ -18,7 +18,7 @@ const Login = ({userLogin}) => {
                     type='text'
                     name='username'
                     placeholder='Username'
-                    onChange={(e)=>setUsername(e.target.value)}
+                    onChange={(e:any)=>setUsername(e.target.value)}
                 />
                 <label htmlFor='password'>Password</label>
                 <input
@@ -26,7 +26,7 @@ const Login = ({userLogin}) => {
                     type='password'
                     name='password'
                     placeholder='Password'
-                    onChange={(e)=>setPassword(e.target.value)}
+                    onChange={(e:any)=>setPassword(e.target.value)}
                 />
                 <button className='login__button' onClick={onClickHandler}>
                     Submit
