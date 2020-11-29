@@ -11,11 +11,11 @@ import axios from './axios';
 
 function App() {
     var token = localStorage.getItem('token');
-    const mainComment = (comment:string,main_post:Int16Array) =>{
+    const mainComment = (comment: string, main_post: Int16Array) => {
         var data = {
             comment,
-            main_post
-        }
+            main_post,
+        };
         axios
             .post('/post/create/maincomment/', data, {
                 headers: {
@@ -28,7 +28,7 @@ function App() {
             .catch((err) => {
                 console.log(err.response);
             });
-    }
+    };
     const userLogin = (username: string, password: string) => {
         var data = {
             username,
